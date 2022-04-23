@@ -6,3 +6,10 @@
 .writtenOverviewBody {
     font-size: 20px;
 }
+
+.erdBody {
+    background: url("PokémonERD.png") no-repeat center center fixed;
+    background-size: contain;
+    height: 100%;
+    overflow: hidden;
+}
