@@ -5,3 +5,6 @@ windows: .venv\Scripts\Activate.ps1
 mac/linux: source .venv/bin/activate
 
 run above command to use virtual environment
+
+
+website is at bradenhelmer1.pythonanywhere.com
