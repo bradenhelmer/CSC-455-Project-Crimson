@@ -15,5 +15,8 @@
 }
 
 .schemaBody {
-    background: url("")
+    background: url("CSC455DatabaseSchema.png") no-repeat center center fixed;
+    background-size: contain;
+    height: 100%;
+    overflow: hidden;
 }
