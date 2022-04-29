@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Table Design, Relationships, and Data</title>
+        
+    </head>
+    <body>
+        <a href="{{ url_for('home') }}"><button>Go back to home page</button></a>
+        <br>
+
+        <form method="post">
+            <label for="name">Enter name:</label>
+            <br>
+            <input type="text" name="name" placeholder="NAME HERE" value="{{ request.form['name'] }}">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        
+
+
+    </body>
+</html>
