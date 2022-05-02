@@ -5,8 +5,8 @@ from mysql.connector import connect
 
 db = connect(
     host="crimson.crjdaartjksp.us-east-1.rds.amazonaws.com",
-    username="braden",
-    password="braden",
+    username="admin",
+    password="Crimson455",
     database="project"
 )
 
