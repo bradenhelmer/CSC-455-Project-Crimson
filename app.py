@@ -24,11 +24,12 @@ def erd_diagram():
 def logical_schema():
     return render_template("logicalSchema.html")
 
+
 @app.route("/tbl_dgn_rel_data")
 def table_design():
     return render_template("tblDgnRelData.html")
 
+
 @app.route("/supporting_queries")
 def supporting_queries():
-    
     return render_template('supportingQueries.html')
