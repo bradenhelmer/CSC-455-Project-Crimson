@@ -1,16 +1,6 @@
 from flask import Flask, request
 from flask import render_template
-from mysql.connector import connect
 
-
-db = connect(
-    host="crimson.crjdaartjksp.us-east-1.rds.amazonaws.com",
-    username="admin",
-    password="Crimson455",
-    database="project"
-)
-
-cursor = db.cursor()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'ac595d158a0b804c36102ec03c7355d5e501bd66f7e0ad2b'
@@ -40,6 +30,5 @@ def table_design():
 
 @app.route("/supporting_queries")
 def supporting_queries():
-    
     
     return render_template('supportingQueries.html')
