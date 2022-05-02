@@ -8,14 +8,14 @@
 }
 
 .erdBody {
-    background: url("CSC455UpdatedDatabaseERD.png") no-repeat center center fixed;
+    background: url("finalERD.png") no-repeat center center fixed;
     background-size: contain;
     height: 100%;
     overflow: hidden;
 }
 
 .schemaBody {
-    background: url("CSC455DatabaseSchema.png") no-repeat center center fixed;
+    background: url("updatedSchema.png") no-repeat center center fixed;
     background-size: contain;
     height: 100%;
     overflow: hidden;
@@ -23,4 +23,8 @@
 
 .queryList {
     font-size: 30px;
+}
+
+.schema {
+    
 }

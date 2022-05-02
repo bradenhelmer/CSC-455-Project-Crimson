@@ -41,6 +41,5 @@ def table_design():
 @app.route("/supporting_queries")
 def supporting_queries():
     
-    cursor.execute("SELECT * FROM pokemon;")
     
-    return render_template('supportingQueries.html', cursor=cursor)
+    return render_template('supportingQueries.html')

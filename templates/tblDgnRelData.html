@@ -3,13 +3,16 @@
     <head>
         <meta charset="utf-8"/>
         <title>Table Design, Relationships, and Data</title>
-        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
+      
         <a href="{{ url_for('home') }}"><button>Go back to home page</button></a>
+        <div class="schema"><img src="{{ url_for('static', filename='Workbench Schema.png') }}" alt="Final Schema"></div>
         
         <h2>Queries to create all tables: </h2>
-        <h3>Note: Most tables were populated using python scripts like the populator.py file for the moves table</h3>
+        <h3>Note: Most tables were populated using python scripts like the populator.py file for the moves table</h3> 
+  
         <h3>An example of an INSERT statement is below each CREATE query</h3>
 
         <h4>Table: pokemon</h4>
