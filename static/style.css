@@ -20,3 +20,7 @@
     height: 100%;
     overflow: hidden;
 }
+
+.queryList {
+    font-size: 30px;
+}

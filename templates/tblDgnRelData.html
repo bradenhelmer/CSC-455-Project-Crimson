@@ -9,7 +9,6 @@
         <a href="{{ url_for('home') }}"><button>Go back to home page</button></a>
         
         <h2>Queries to create all tables: </h2>
-
         <h3>Note: Most tables were populated using python scripts like the populator.py file for the moves table</h3>
         <h3>An example of an INSERT statement is below each CREATE query</h3>
 
@@ -71,7 +70,7 @@
             CONSTRAINT `moveLearnset_ibfk_1` FOREIGN KEY (`pokeDexID`) REFERENCES `pokemon` (`pokeDexID`),
             CONSTRAINT `moveLearnset_ibfk_2` FOREIGN KEY (`moveID`) REFERENCES `moves` (`moveID`))</pre>
 
-            <mark>INSERT INTO moveLearnset (pokeDexID, moveID), (1, 1200);</mark>
+            <mark>INSERT INTO moveLearnset (pokeDexID, moveID), VALUES(1, 1200);</mark>
 
           <h4>Table: moves</h4>
           <pre>CREATE TABLE `moves` (
@@ -97,7 +96,7 @@
             CONSTRAINT `spawnsItem_ibfk_1` FOREIGN KEY (`ItemID`) REFERENCES `items` (`itemID`),
             CONSTRAINT `spawnsItem_ibfk_2` FOREIGN KEY (`locationID`) REFERENCES `locations` (`locationID`))</pre>
 
-            <mark>INSERT INTO spawnsItem(ItemID, locationID) VALUES(404, 2);(</mark>
+            <mark>INSERT INTO spawnsItem(ItemID, locationID) VALUES(404, 2);</mark>
 
           <h4>Table: spawnsPokemon</h4>
           <pre>CREATE TABLE `spawnsPokemon` (
