@@ -28,6 +28,9 @@
             `typeID2` varchar(45) DEFAULT NULL,
             PRIMARY KEY (`pokeDexID`)
           )</pre>
+
+          <mark>INSERT INTO pokemon (pokeDexID, pokeName, pokeHealth, pokePhysAtk, pokeSpecAtk, pokePhysDef, pokeSpecDef, pokeSpeed, typeID, typeID2)
+            VALUES(1, 'Rowlett', 'BIO', 68, 55, 50, 55, 50, 42, 23, 28);</mark>
     
         <h4>Table: evolutions</h4>
         <pre>CREATE TABLE `evolutions` (
@@ -37,6 +40,7 @@
             CONSTRAINT `evolutions_ibfk_1` FOREIGN KEY (`pokeDexID`) REFERENCES `pokemon` (`pokeDexID`)
           )</pre>
 
+          <mark>INSERT INTO evolutions (pokeDexID, pokeEvolution) VALUES (1, 'Rowlet -> Dartrix -> Decidueye');</mark>
 
         <h4>Table: items</h4>
         <pre>CREATE TABLE `items` (
@@ -48,11 +52,15 @@
             `itemName` varchar(45) NOT NULL,
             PRIMARY KEY (`itemID`))</pre>
 
+            <mark>INSERT INTO items (itemID, itemEffect, itemName) VALUES (1, 'EFFECT DESCRIPTION', 'Ability Capsule');</mark>
+
           <h4>Table: locations</h4>
           <pre>CREATE TABLE `locations` (
             `locationID` int NOT NULL AUTO_INCREMENT,
             `locationName` varchar(45) DEFAULT NULL,
             PRIMARY KEY (`locationID`))</pre>
+
+            <mark>INSERT INTO locations (locationID, locationName VALUES(1, 'Floaro Gardens');</mark>
 
           <h4>Table: moveLearnset</h4>
           <pre>CREATE TABLE `moveLearnset` (
@@ -62,6 +70,8 @@
             KEY `moveID` (`moveID`),
             CONSTRAINT `moveLearnset_ibfk_1` FOREIGN KEY (`pokeDexID`) REFERENCES `pokemon` (`pokeDexID`),
             CONSTRAINT `moveLearnset_ibfk_2` FOREIGN KEY (`moveID`) REFERENCES `moves` (`moveID`))</pre>
+
+            <mark>INSERT INTO moveLearnset (pokeDexID, moveID), (1, 1200);</mark>
 
           <h4>Table: moves</h4>
           <pre>CREATE TABLE `moves` (
@@ -76,6 +86,8 @@
             KEY `fk_type_id` (`typeID`),
             CONSTRAINT `fk_type_id` FOREIGN KEY (`typeID`) REFERENCES `types` (`typeID`))</pre>
 
+            <mark>INSERT INTO moves (moveID, movePP, moveName, typeID) VALUES (867, 1, '10,000,000 Million Volt Thunderbolt', 22);</mark>
+
           <h4>Table: spawnsItem</h4>
           <pre>CREATE TABLE `spawnsItem` (
             `ItemID` int NOT NULL,
@@ -85,6 +97,8 @@
             CONSTRAINT `spawnsItem_ibfk_1` FOREIGN KEY (`ItemID`) REFERENCES `items` (`itemID`),
             CONSTRAINT `spawnsItem_ibfk_2` FOREIGN KEY (`locationID`) REFERENCES `locations` (`locationID`))</pre>
 
+            <mark>INSERT INTO spawnsItem(ItemID, locationID) VALUES(404, 2);(</mark>
+
           <h4>Table: spawnsPokemon</h4>
           <pre>CREATE TABLE `spawnsPokemon` (
             `pokeDexID` int NOT NULL,
@@ -93,11 +107,15 @@
             KEY `locationID` (`locationID`),
             CONSTRAINT `spawnsPokemon_ibfk_1` FOREIGN KEY (`pokeDexID`) REFERENCES `pokemon` (`pokeDexID`),
             CONSTRAINT `spawnsPokemon_ibfk_2` FOREIGN KEY (`locationID`) REFERENCES `locations` (`locationID`))</pre>
+            
+            <mark>INSERT INTO spawnsPokemon (pokeDexID, locationID) VALUES (18, 1);</mark>
 
           <h4>Table: types</h4>
           <pre>CREATE TABLE `types` (
             `typeID` int NOT NULL AUTO_INCREMENT,
             `type` varchar(45) NOT NULL,
             PRIMARY KEY (`typeID`,`type`))</pre>
+
+            <mark>INSERT INTO types (typeID, type) VALUES (19, 'Normal');</mark>
     </body>
 </html>
