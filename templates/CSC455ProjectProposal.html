@@ -80,24 +80,8 @@ each Pokémon, it is necessary to have:</font></p>
 <ul>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Pokédex
 	number (primary key)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Biological
-	sex</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Combat
 	type (at least one, at most two)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Preferred
-	types of food</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Average
-	weight</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Different
-	forms (shiny, male, female)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Behavior
-	(aggressive vs. passive)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Items
-	dropped</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Current
-	level (or average spawning level)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%">“<font face="Times New Roman, serif">Nature”
-	(innate trait that prioritizes certain stats)</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Combat
 	stats (health, attack, special attack, defense, special defense, and
 	speed [varying with different levels/natures])</font></p>
@@ -108,11 +92,6 @@ each Pokémon, it is necessary to have:</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Innate
 	Learnset (attacks or abilities each Pokémon gains while leveling
 	up)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Taught
-	Learnset (attacks or abilities each Pokémon is capable of learning
-	from a trainer)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Effort
-	values (base stat upgrade levels)</font></p>
 </ul>
 <p style="margin-bottom: 0in; line-height: 100%"><br/>
 
@@ -125,17 +104,12 @@ necessary to have:</font></p>
 	ID (primary key)</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Combat
 	type (one only)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Damage
-	dealt (could be zero)</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Stat-altering
 	effects (could be zero)</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Status
 	effects (could be none)</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Accuracy
 	rating</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Battle
-	style (strong vs. agile [this affects the overall effect of every
-	move])</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">PP
 	(Poké Power [the number of times a move can be used])</font></p>
 </ul>
@@ -151,27 +125,7 @@ each combat type, it is necessary to have:</font></p>
 	of said combat type</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Pokémon
 	of said combat type</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Type
-	matchups, which can affect the effects and/or damage of moves
-	(example: Fire)</font></p>
-	<ul>
-		<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Offense
-		– Weak: Fire, Water, Rock, Dragon</font></p>
-		<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Offense
-		– Neutral: Normal, Ground, Fairy, Electric, Fighting, Psychic,
-		Dark, Ghost, Flying, Poison</font></p>
-		<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Offense
-		– Strong: Grass, Bug, Ice, Steel</font></p>
-		<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Defense
-		– Weak: Water, Rock, Ground</font></p>
-		<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Defense
-		– Neutral: Normal, Electric, Fighting, Psychic, Dark, Ghost,
-		Flying, Poison, Dragon</font></p>
-		<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Defense
-		– Strong – Grass, Bug, Ice, Steel, Fairy</font></p>
-		<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">No
-		Effect: None</font></p>
-	</ul>
+
 </ul>
 <p style="margin-bottom: 0in; line-height: 100%"><br/>
 
@@ -182,11 +136,7 @@ each item in the game, it is necessary to have:</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Item
 	ID (primary key)</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Item
-	type (healing, thrown, crafting)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Item
 	effects</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Item
-	capacity (how many can be held at one time)</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Item
 	locations (where to obtain items)</font></p>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Item
@@ -202,14 +152,7 @@ each location in the game, it is necessary to have:</font></p>
 <ul>
 	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Location
 	ID (primary key)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Biome
-	(type of climate)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Naturally
-	occurring Pokémon</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Naturally
-	occurring items (minerals, herbs for crafting)</font></p>
-	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Rest
-	camp locations (places to shop, rest, and change Pokémon)</font></p>
+	<li><p style="margin-bottom: 0in; line-height: 100%"><font face="Times New Roman, serif">Location Name</font></p>
 </ul>
 <p style="margin-bottom: 0in; line-height: 100%"><br/>
 
