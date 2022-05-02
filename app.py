@@ -1,9 +1,9 @@
 from flask import Flask, request
 from flask import render_template
-from mysql import connector
+from mysql.connector import connect
 
 
-db = connector.connect(
+db = connect(
     host="crimson.crjdaartjksp.us-east-1.rds.amazonaws.com",
     username="braden",
     password="braden",
