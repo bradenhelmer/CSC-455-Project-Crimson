@@ -29,10 +29,4 @@ def logical_schema():
 
 @app.route("/tbl_dgn_rel_data", methods=('GET', 'POST'))
 def table_design():
-    if request.method == 'POST':
-        name = request.form['name']
-        
-
-
-
     return render_template("tblDgnRelData.html")

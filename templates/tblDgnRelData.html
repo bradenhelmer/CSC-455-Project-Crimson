@@ -7,17 +7,97 @@
     </head>
     <body>
         <a href="{{ url_for('home') }}"><button>Go back to home page</button></a>
-        <br>
-
-        <form method="post">
-            <label for="name">Enter name:</label>
-            <br>
-            <input type="text" name="name" placeholder="NAME HERE" value="{{ request.form['name'] }}">
-            <br>
-            <button type="submit">Submit</button>
-        </form>
         
+        <h2>Queries to create all tables: </h2>
+
+        <h3>Note: Most tables were populated using python scripts like the populator.py file for the moves table</h3>
+        <h3>An example of an INSERT statement is below each CREATE query</h3>
+
+        <h4>Table: pokemon</h4>
+        <pre>CREATE TABLE `pokemon` (
+            `pokeDexID` int NOT NULL,
+            `pokeName` varchar(25) NOT NULL,
+            `pokeBio` text,
+            `pokeHealth` int DEFAULT NULL,
+            `pokePhysAtk` int DEFAULT NULL COMMENT '	',
+            `pokeSpecAtk` int DEFAULT NULL,
+            `pokePhysDef` int DEFAULT NULL,
+            `pokeSpecDef` int DEFAULT NULL,
+            `pokeSpeed` int DEFAULT NULL,
+            `typeID` int NOT NULL,
+            `typeID2` varchar(45) DEFAULT NULL,
+            PRIMARY KEY (`pokeDexID`)
+          )</pre>
+    
+        <h4>Table: evolutions</h4>
+        <pre>CREATE TABLE `evolutions` (
+            `pokeDexID` int NOT NULL,
+            `pokeEvolution` text,
+            PRIMARY KEY (`pokeDexID`),
+            CONSTRAINT `evolutions_ibfk_1` FOREIGN KEY (`pokeDexID`) REFERENCES `pokemon` (`pokeDexID`)
+          )</pre>
 
 
+        <h4>Table: items</h4>
+        <pre>CREATE TABLE `items` (
+            `itemID` int NOT NULL,
+            `itemEffect` text NOT NULL,
+            `buyPrice` float DEFAULT NULL,
+            `sellPrice` float DEFAULT NULL,
+            `itemRecipe` text,
+            `itemName` varchar(45) NOT NULL,
+            PRIMARY KEY (`itemID`))</pre>
+
+          <h4>Table: locations</h4>
+          <pre>CREATE TABLE `locations` (
+            `locationID` int NOT NULL AUTO_INCREMENT,
+            `locationName` varchar(45) DEFAULT NULL,
+            PRIMARY KEY (`locationID`))</pre>
+
+          <h4>Table: moveLearnset</h4>
+          <pre>CREATE TABLE `moveLearnset` (
+            `pokeDexID` int NOT NULL,
+            `moveID` int NOT NULL,
+            PRIMARY KEY (`pokeDexID`,`moveID`),
+            KEY `moveID` (`moveID`),
+            CONSTRAINT `moveLearnset_ibfk_1` FOREIGN KEY (`pokeDexID`) REFERENCES `pokemon` (`pokeDexID`),
+            CONSTRAINT `moveLearnset_ibfk_2` FOREIGN KEY (`moveID`) REFERENCES `moves` (`moveID`))</pre>
+
+          <h4>Table: moves</h4>
+          <pre>CREATE TABLE `moves` (
+            `moveID` int NOT NULL AUTO_INCREMENT,
+            `statusEffect` varchar(20) DEFAULT NULL,
+            `statusAltEffect` varchar(20) DEFAULT NULL,
+            `moveAccuracy` int DEFAULT NULL,
+            `movePP` varchar(20) NOT NULL,
+            `moveName` varchar(45) NOT NULL,
+            `typeID` int DEFAULT NULL,
+            PRIMARY KEY (`moveID`),
+            KEY `fk_type_id` (`typeID`),
+            CONSTRAINT `fk_type_id` FOREIGN KEY (`typeID`) REFERENCES `types` (`typeID`))</pre>
+
+          <h4>Table: spawnsItem</h4>
+          <pre>CREATE TABLE `spawnsItem` (
+            `ItemID` int NOT NULL,
+            `locationID` int NOT NULL,
+            PRIMARY KEY (`ItemID`,`locationID`),
+            KEY `locationID` (`locationID`),
+            CONSTRAINT `spawnsItem_ibfk_1` FOREIGN KEY (`ItemID`) REFERENCES `items` (`itemID`),
+            CONSTRAINT `spawnsItem_ibfk_2` FOREIGN KEY (`locationID`) REFERENCES `locations` (`locationID`))</pre>
+
+          <h4>Table: spawnsPokemon</h4>
+          <pre>CREATE TABLE `spawnsPokemon` (
+            `pokeDexID` int NOT NULL,
+            `locationID` int NOT NULL,
+            PRIMARY KEY (`pokeDexID`,`locationID`),
+            KEY `locationID` (`locationID`),
+            CONSTRAINT `spawnsPokemon_ibfk_1` FOREIGN KEY (`pokeDexID`) REFERENCES `pokemon` (`pokeDexID`),
+            CONSTRAINT `spawnsPokemon_ibfk_2` FOREIGN KEY (`locationID`) REFERENCES `locations` (`locationID`))</pre>
+
+          <h4>Table: types</h4>
+          <pre>CREATE TABLE `types` (
+            `typeID` int NOT NULL AUTO_INCREMENT,
+            `type` varchar(45) NOT NULL,
+            PRIMARY KEY (`typeID`,`type`))</pre>
     </body>
 </html>
