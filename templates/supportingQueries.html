@@ -38,7 +38,73 @@
                 Query: SELECT COUNT(si.locationID) AS NumOfItems, l.locationName AS Location FROM spawnsItem si, locations l WHERE l.locationID = si.locationID GROUP BY locationName;<br>
                 Result:<br>
                 <TABLE BORDER=1><TR><TH>NumOfItems</TH><TH>Location</TH></TR><TR><TD>1</TD><TD>Horseshoe Plains</TD></TR><TR><TD>1</TD><TD>Grueling Grove</TD></TR><TR><TD>3</TD><TD>Lake Valor</TD></TR><TR><TD>1</TD><TD>Sludge Mound</TD></TR><TR><TD>2</TD><TD>Temple of Sinnoh</TD></TR><TR><TD>2</TD><TD>Snowpoint Temple</TD></TR><TR><TD>2</TD><TD>Jubilife Village</TD></TR><TR><TD>20</TD><TD>Space-Time Distortion</TD></TR></TABLE>
+            </li>
+            <li><strong>Find all pokemon that cannot evolve (Sub-Query)</strong><br>
+                Query: <pre>select * from pokemon    
+                            where pokeDexID not in (
+                            select n.pokeDexID from evolutions n);</pre><br>
+                Result:<br>
+                <TABLE BORDER=1><TR><TH>pokeDexID</TH><TH>pokeName</TH><TH>pokeBio</TH><TH>pokeHealth</TH><TH>pokePhysAtk</TH><TH>pokeSpecAtk</TH><TH>pokePhysDef</TH><TH>pokeSpecDef</TH><TH>pokeSpeed</TH><TH>typeID</TH><TH>typeID2</TH></TR><TR><TD>228</TD><TD>Heatran</TD><TD>
+                    Heatran is a Fire/Steel type Pokémon introduced in Generation 4. It is known as the Lava Dome Pokémon.
+                    </TD><TD>91</TD><TD>90</TD><TD>130</TD><TD>106</TD><TD>106</TD><TD>77</TD><TD>20</TD><TD>36</TD></TR><TR><TD>231</TD><TD>Thundurus</TD><TD>
+                    Thundurus is an Electric/Flying type Pokémon introduced in Generation 5. It is known as the Bolt Strike Pokémon.
+                    </TD><TD>79</TD><TD>115</TD><TD>125</TD><TD>70</TD><TD>80</TD><TD>111</TD><TD>22</TD><TD>28</TD></TR><TR><TD>232</TD><TD>Tornadus</TD><TD>
+                    Tornadus is a Flying type Pokémon introduced in Generation 5. It is known as the Cyclone Pokémon.
+                    </TD><TD>79</TD><TD>115</TD><TD>125</TD><TD>70</TD><TD>80</TD><TD>111</TD><TD>28</TD><TD>NULL</TD></TR><TR><TD>233</TD><TD>Landorus</TD><TD>
+                    Landorus is a Ground/Flying type Pokémon introduced in Generation 5. It is known as the Abundance Pokémon.
+                    </TD><TD>89</TD><TD>125</TD><TD>115</TD><TD>90</TD><TD>80</TD><TD>101</TD><TD>27</TD><TD>28</TD></TR><TR><TD>238</TD><TD>Arceus</TD><TD>
+                    Arceus is a Normal type Pokémon introduced in Generation 4. It is known as the Alpha Pokémon.
+                    </TD><TD>120</TD><TD>120</TD><TD>120</TD><TD>120</TD><TD>120</TD><TD>120</TD><TD>19</TD><TD>NULL</TD></TR></TABLE>
+            </li>
+            <li><strong>Stored Procedure to get all Pokemon of a certain type. (Stored Procedure)</strong><br>
+                Procedure:<br>
+                        <pre>
+                            DELIMITER //
 
+                            CREATE PROCEDURE GetAllPokemonOfType(IN argTypeID int)
+                            BEGIN
+                                SELECT * FROM pokemon where typeID = argTypeID or typeID2 = argTypeID;
+                            END //
+                        
+                            DELIMITER ;</pre>
+                Result of "CALL GetAllPokemonOfType(19);" :<br>
+                <TABLE BORDER=1><TR><TH>pokeDexID</TH><TH>pokeName</TH><TH>pokeBio</TH><TH>pokeHealth</TH><TH>pokePhysAtk</TH><TH>pokeSpecAtk</TH><TH>pokePhysDef</TH><TH>pokeSpecDef</TH><TH>pokeSpeed</TH><TH>typeID</TH><TH>typeID2</TH></TR><TR><TD>10</TD><TD>Bidoof</TD><TD>
+                    Bidoof is a Normal type Pokémon introduced in Generation 4. It is known as the Plump Mouse Pokémon.
+                    </TD><TD>59</TD><TD>45</TD><TD>35</TD><TD>40</TD><TD>40</TD><TD>31</TD><TD>19</TD><TD>NULL</TD></TR><TR><TD>14</TD><TD>Staraptor</TD><TD>
+                    Staraptor is a Normal/Flying type Pokémon introduced in Generation 4. It is known as the Predator Pokémon.
+                    </TD><TD>85</TD><TD>120</TD><TD>50</TD><TD>70</TD><TD>60</TD><TD>100</TD><TD>19</TD><TD>28</TD></TR><TR><TD>50</TD><TD>Wyrdeer</TD><TD>
+                    Wyrdeer is a Normal/Psychic type Pokémon introduced in Generation 8. It is known as the Big Horn Pokémon.
+                    Wyrdeer is a new Pokémon introduced in Pokémon Legends: Arceus. It is an evolution of Stantler.
+                    Using the black orbs at the bases of its antlers, this Pokémon generates and unleashes psychic energy powerful enough to distort space.
+                    </TD><TD>103</TD><TD>105</TD><TD>105</TD><TD>72</TD><TD>75</TD><TD>65</TD><TD>19</TD><TD>29</TD></TR><TR><TD>114</TD><TD>Ursaluna</TD><TD>
+                    Ursaluna is a Normal/Ground type Pokémon introduced in Generation 8. It is known as the Peat Pokémon.
+                    Evolution of Ursaring, available in Pokémon Legends: Arceus.
+                    </TD><TD>130</TD><TD>140</TD><TD>45</TD><TD>105</TD><TD>80</TD><TD>50</TD><TD>19</TD><TD>27</TD></TR><TR><TD>222</TD><TD>Braviary</TD><TD>
+                    Braviary is a Normal/Flying type Pokémon introduced in Generation 5. It is known as the Valiant Pokémon.
+                    Braviary has a new Hisuian form, available in Pokémon Legends: Arceus.
+                    </TD><TD>100</TD><TD>123</TD><TD>57</TD><TD>75</TD><TD>75</TD><TD>80</TD><TD>19</TD><TD>28</TD></TR><TR><TD>238</TD><TD>Arceus</TD><TD>
+                    Arceus is a Normal type Pokémon introduced in Generation 4. It is known as the Alpha Pokémon.
+                    </TD><TD>120</TD><TD>120</TD><TD>120</TD><TD>120</TD><TD>120</TD><TD>120</TD><TD>19</TD><TD>NULL</TD></TR></TABLE>
+            </li>
+            <li><strong>Function to get the count of pokemon by type. (Stored Function)</strong><br>
+                Function:<br>
+                <pre>
+                    DELIMITER //
+
+                    CREATE FUNCTION GetPokemonCountByType(VarTypeID int) RETURNS int DETERMINISTIC
+                    BEGIN
+                        DECLARE typeCount int;
+                        SELECT count(*) FROM pokemon where typeID = argTypeID or typeID2 = argTypeID 	into typeCount;
+                        RETURN typeCount;
+                    END 
+                    //
+                    DELIMITER ;
+                    </pre><br>
+                Was not able to get this to work in AWS, something was wrong with the administrative privleges;
+            </li>
+            <li><strong>Trigger to</strong><br>
+                
+            
             </li>
         </ol>
     </body>
