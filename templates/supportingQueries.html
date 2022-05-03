@@ -102,9 +102,16 @@
                     </pre><br>
                 Was not able to get this to work in AWS, something was wrong with the administrative privleges;
             </li>
-            <li><strong>Trigger to</strong><br>
-                
-            
+            <li><strong>Trigger to set sell price when buy price is set (Trigger)</strong><br>
+                Trigger:<br>
+                <pre>
+                    DELIMITER //
+                    CREATE TRIGGER update_sell_price AFTER UPDATE
+                    ON items
+                    FOR EACH ROW
+                    UPDATE buyPrice SET sellPrice = buyprice / 2; //
+                    DELIMITER;</pre><br>
+                Was not able to get this to work in AWS, something was wrong with the administrative privleges;
             </li>
         </ol>
     </body>
